@@ -25,6 +25,7 @@ header {
 }
 
 #blogContent {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     max-width: 800px;
@@ -58,7 +59,8 @@ footer {
     background-color: #56A1A4;
 }
 
-#headerWrapper h1 {
+#headerWrapper h1,
+#headerPageContent h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
