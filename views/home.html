@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+    <header>
+        <div id="headerWrapper">
+            <h1>CCNA and Homelab Blog</h1>
+            <div id="introduction">
+                <div id="namePhoto">
+                    <img src="foto.jpg" id="hoofd">
+                    <h2>Tijn Gort</h2>
+                </div>
+                <p id="introText">
+                    I am a IT student working at a social IT company. 
+                    I'm currently studying for CCNA and I work on
+                    my homelab and this website!
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <%- include('blogCards.html') -%>
+    </main>
+
+    <%- include('footer.html') -%>
+
+</body>
+
+</html>

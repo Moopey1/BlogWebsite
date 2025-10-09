@@ -1,0 +1,16 @@
+[   
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["#homelab", "#networking", "#homelab"],
+        "date": "10-10-2025",
+        "summary": "Atleast I learned something along the way.",
+        "url": "/views/blogPage.html"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["#homelab", "#networking"],
+        "date": "09-10-2025",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    }
+]

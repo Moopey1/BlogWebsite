@@ -1,0 +1,23 @@
+<div id="blogCardsContainer">
+    <% cardData.forEach((object) => { %>
+        <div class="wrapper">
+            <h3 class="title">
+                <%= object.title %>
+            </h3>
+            <div class="tags">
+                <% object.tags.forEach((tag) => { %>
+                    <p class="tag">
+                        <%= tag %>
+                    </p>
+                <% }); %>
+            </div>
+            <p class="fullDate">
+                <%= object.date %>
+            </p>
+            <p class="summary">
+                <%= object.summary %>
+            </p>
+            <a class="link" href="<%= object.url %>">Read more</a>
+        </div>
+    <% }); %>
+</div>
