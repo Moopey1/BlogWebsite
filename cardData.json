@@ -1,15 +1,71 @@
 [   
     {
         "title": "I made this blog website and overengineered these blog cards!",
-        "tags": ["#homelab", "#networking", "#homelab"],
-        "date": "10-10-2025",
+        "tags": ["homelab", "networking"],
+        "date": "2025-10-10",
         "summary": "Atleast I learned something along the way.",
         "url": "blogPage"
     },
     {
         "title": "I made this blog website and overengineered these blog cards!",
-        "tags": ["#homelab", "#networking"],
-        "date": "09-10-2025",
+        "tags": ["homelab", "networking"],
+        "date": "2025-10-09",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["testing"],
+        "date": "2025-10-09",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["testing"],
+        "date": "2025-10-09",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["proxmox"],
+        "date": "2025-10-09",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["proxmox"],
+        "date": "2025-10-09",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["docker"],
+        "date": "2025-10-09",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["docker"],
+        "date": "2025-10-09",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["linux"],
+        "date": "2025-10-09",
+        "summary": "Atleast I learned something along the way.",
+        "url": "first-blog"
+    },
+    {
+        "title": "I made this blog website and overengineered these blog cards!",
+        "tags": ["linux"],
+        "date": "2025-10-09",
         "summary": "Atleast I learned something along the way.",
         "url": "first-blog"
     }
