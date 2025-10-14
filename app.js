@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const cardData = require('./cardData.json');
 const bodyParser = require('body-parser');
+const md = require('markdown-it')();
+const hljs = require('highlight.js');
 const app = express();
 const port = 3000;
 
@@ -23,6 +25,7 @@ app.get('/', (req, res) => {
   });
 });
 
+// Sorts blog cards by tag from the URL parameter and renders the filtered list on the homepage.
 const cardSorter = (req, res, next) => {
   const sortedArray = [];
   const parsedTag = req.params.param.split('=')[1];
@@ -38,19 +41,19 @@ const cardSorter = (req, res, next) => {
     cardData: sortedArray
   });
   next();
-};
+}
 
+// Loads a markdown blog post based on the URL parameter, parses frontmatter, and renders it as HTML.
 const mdLoader = (req, res, next) => {
   const blog = cardData.find(b => b.url === req.params.param);
   if (!blog) {
     res.status(404).send("Sorry can't find that!");
   }
 
-  const file = matter.read(__dirname + '/blogs/' + req.params.param + '.md');
-
-  const md = require('markdown-it')();
+  const file = matter.read(__dirname + '/blogs/' + req.params.param + '.md');  
   let content = file.content;
   const result = md.render(content);
+  console.log('result in mdLoader: ' + result);
 
   res.render('blogPage', {
     post: result,
@@ -58,15 +61,16 @@ const mdLoader = (req, res, next) => {
     description: file.data.description
   });
   next();
-};
+}
 
+// Checks if the URL parameter is a tag or a blog post, and calls the appropriate handler.
 const checker = (req, res, next) => {
   if (req.params.param.includes('tag')) {
     cardSorter(req, res, next);
   } else {
     mdLoader(req, res, next);
   }
-};
+}
 
 app.get('/:param', checker, (req, res) => {
   console.log(req.params.param);
