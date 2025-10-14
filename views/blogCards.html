@@ -5,10 +5,10 @@
                 <%= object.title %>
             </h3>
             <div class="tags">
-                <% object.tags.forEach((tag) => { %>
-                    <p class="tag">
-                        <%= tag %>
-                    </p>
+                <% object.tags.forEach((t) => { %>
+                    <a class="tag" href="tag=<%= t %>">
+                        #<%= t %>
+                    </a>
                 <% }); %>
             </div>
             <p class="fullDate">
