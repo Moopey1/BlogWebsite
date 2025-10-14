@@ -47,7 +47,7 @@ const cardSorter = (req, res, next) => {
 const mdLoader = (req, res, next) => {
   const blog = cardData.find(b => b.url === req.params.param);
   if (!blog) {
-    res.status(404).send("Sorry can't find that!");
+    res.status(404).render('notFound');
   }
 
   const file = matter.read(__dirname + '/blogs/' + req.params.param + '.md');  
