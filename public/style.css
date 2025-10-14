@@ -34,7 +34,7 @@ header {
     align-items: center;
     max-width: 800px;
     width: 90%;
-    padding: 0.5em;
+    padding: 1em;
     background-color: #56A1A4;
 }
 
@@ -43,11 +43,19 @@ header {
 }
 
 .blogWrapper {
-    max-width: 70%;
+    max-width: 480px;
 }
 
 .blogWrapper * {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.blogWrapper h1 {
+    margin-top: 2em;
+}
+
+.blogWrapper article * {
+    font-size: 1.1em;
 }
 
 footer {
@@ -241,7 +249,7 @@ footer {
         align-items: center;
         max-width: 800px;
         width: 100%;
-        padding: 0.5em;
+        padding: 1em;
         background-color: #56A1A4;
     }
 
