@@ -16,22 +16,38 @@ header {
 }
 
 #headerPageContent {
-    display: flex;
-    justify-content: center;
     max-width: 800px;
     width: 90%;
     padding: 0.5em;
     background-color: #56A1A4;
 }
 
-#blogContent {
+.homeLink {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.blogContent {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     max-width: 800px;
     width: 90%;
     padding: 0.5em;
     background-color: #56A1A4;
+}
+
+.paddingTop {
+    padding-top: 2em;
+}
+
+.blogWrapper {
+    max-width: 70%;
+}
+
+.blogWrapper * {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 footer {
@@ -39,7 +55,7 @@ footer {
     justify-content: center;
 }
 
-#footerContent {
+.footerContent {
     display: flex;
     justify-content: center;
     max-width: 800px;
@@ -48,7 +64,11 @@ footer {
     background-color: #56A1A4;
 }
 
-#headerWrapper {
+.footerContent p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.headerWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,8 +79,7 @@ footer {
     background-color: #56A1A4;
 }
 
-#headerWrapper h1,
-#headerPageContent h1 {
+.headerWrapper h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -78,8 +97,7 @@ footer {
     font-size: 1.1em;
 }
 
-
-#blogCardsContainer {
+.blogCardsContainer {
     min-height: 100vh;
     background-color: #56A1A4;
     padding: 0.5em;
@@ -92,10 +110,17 @@ footer {
 
 #namePhoto {
     display: flex;
+    align-items: center;
+}
+
+.imgWrapper {
+    height: 75px;
 }
 
 #hoofd {
-    width: 20%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     border-radius: 50%;
 }
 
@@ -145,4 +170,57 @@ footer {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1em;
     color: black;
+}
+
+@media only screen and (max-width: 600px) {
+    .headerWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 800px;
+        width: 100%;
+        padding: 0.5em;
+        background-color: #56A1A4;
+    }
+
+    .headerWrapper h1 {
+        text-align: center;
+    }
+
+    .blogCardsContainer {
+        min-height: 100vh;
+        background-color: #56A1A4;
+        padding: 0.5em;
+        max-width: 800px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerContent {
+        display: flex;
+        justify-content: center;
+        max-width: 800px;
+        width: 100%;
+        padding: 0.5em;
+        background-color: #56A1A4;
+    }
+
+    .blogContent {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        width: 100%;
+        padding: 0.5em;
+        background-color: #56A1A4;
+    }
+
+    .paddingTop {
+        padding-top: 2em;
+    }
+
 }

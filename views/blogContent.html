@@ -1,3 +1,10 @@
-<div id="blogContent">
-    <%= blog %>
+<div class="blogContent paddingTop">
+    <div class="blogWrapper">
+        <a href="/" class="homeLink">Home</a>
+        <h1><%= title %></h1>
+        <p><%= description %></p>
+        <article>
+            <%- post %>
+        </article>
+    </div>
 </div>
