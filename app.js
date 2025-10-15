@@ -2,10 +2,23 @@ const express = require('express');
 const path = require('path');
 const cardData = require('./cardData.json');
 const bodyParser = require('body-parser');
-const md = require('markdown-it')();
 const hljs = require('highlight.js');
+const md = require('markdown-it')({
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return '<pre><code class="hljs">' +
+               hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+               '</code></pre>';
+      } catch (__) {}
+    }
+
+    return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
+  }
+});
 const app = express();
 const port = 3000;
+
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({

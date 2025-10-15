@@ -2,7 +2,7 @@
     <% cardData.forEach((object) => { %>
         <div class="wrapper">
             <h3 class="title">
-                <%= object.title %>
+                <a class="link" href="<%= object.url %>"><%= object.title %></a>
             </h3>
             <div class="tags">
                 <% object.tags.forEach((t) => { %>

@@ -5,5 +5,12 @@
         "date": "14-10-2025",
         "summary": "A fitting description.",
         "url": "first-blog"
+    },
+    {
+        "title": "Test post to see if syntax highlighting works.",
+        "tags": ["webdev"],
+        "date": "15-10-2025",
+        "summary": "A fitting description.",
+        "url": "blogPage"
     }
 ]
