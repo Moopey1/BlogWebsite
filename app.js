@@ -70,7 +70,7 @@ const mdLoader = (req, res, next) => {
 
   res.render('blogPage', {
     post: result,
-    title: file.data.title,
+    title: blog.title,
     description: file.data.description
   });
   next();

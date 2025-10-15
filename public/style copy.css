@@ -1,17 +1,8 @@
-:root {
-    /* --text-color: #F2F2F2; */
-    /* --text-color: #DDFFF7; */
-    --text-color: #F3F9D2;
-    --background-color: #A0153E;
-    --font-family:
-}
-
 html,
 body {
     height: 100%;
     margin: 0;
-    /* background-color: #363635; */
-    background-color: var(--background-color);
+    background-color: #363635;
 }
 
 main {
@@ -28,7 +19,7 @@ header {
     max-width: 800px;
     width: 90%;
     padding: 0.5em;
-    /* background-color: #56A1A4; */
+    background-color: #56A1A4;
 }
 
 .blogContent {
@@ -39,8 +30,7 @@ header {
     max-width: 800px;
     width: 90%;
     padding: 0.5em;
-    color: var(--text-color);
-    /* background-color: #56A1A4; */
+    background-color: #56A1A4;
 }
 
 .paddingTop {
@@ -57,16 +47,13 @@ header {
 
 .blogWrapper p {
     font-size: 17px;
-    line-height: 1.2em;
+    line-height: 1.25em;
+    /* letter-spacing: .03em; */
 }
 
 .blogWrapper h1 {
     margin-top: 2em;
     font-size: 2.3em;
-}
-
-.socialsWrapper a:nth-child(2){
-    margin-left: 1em;
 }
 
 footer {
@@ -80,11 +67,10 @@ footer {
     max-width: 800px;
     width: 90%;
     padding: 0.5em;
-    /* background-color: #56A1A4; */
+    background-color: #56A1A4;
 }
 
 .footerContent p {
-    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -96,7 +82,7 @@ footer {
     max-width: 800px;
     width: 90%;
     padding: 0.5em;
-    /* background-color: #56A1A4; */
+    background-color: #56A1A4;
 }
 
 .headerWrapper h1 {
@@ -109,28 +95,23 @@ footer {
 
 #namePhoto h2 {
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--text-color);
     margin-left: 0.5em;
 }
 
 #introText {
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--text-color);
     font-size: 1.1em;
 }
 
 .blogCardsContainer {
     min-height: 100vh;
-    /* background-color: #56A1A4; */
+    background-color: #56A1A4;
     padding: 0.5em;
-    align-content: flex-start;
-    justify-content: center;
-    max-width: 1600px;
-    /* width: 90%; */
+    max-width: 800px;
+    width: 90%;
     display: flex;
-    /* flex-direction: column; */
-    /* align-items: center; */
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
 #namePhoto {
@@ -150,8 +131,7 @@ footer {
 }
 
 .wrapper {
-    /* width: 70%; */
-    min-width: 550px;
+    width: 70%;
     padding: 1em;
     margin: 0.5em;
     border-radius: 15px;
@@ -159,20 +139,16 @@ footer {
 
 .fullDate {
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--text-color);
     margin: 0.3em;
     margin-left: 0;
     font-size: 1em
 }
 
 .title {
+    text-decoration: underline;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;
-}
-
-.title .link {
-    text-decoration: none;
 }
 
 .tags {
@@ -184,14 +160,14 @@ footer {
     padding-right: 0.4em;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
-    color: var(--text-color);
+    color: black;
     font-size: 1.2em;
 }
 
 .homeButton {
     text-decoration: none;
     margin: 0.5em;
-    color: var(--text-color);
+    color: black;
     font-size: 2.5em;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -202,7 +178,6 @@ footer {
     border-right: 0;
     border-bottom: 0;
     border-style: solid;
-    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
 }
@@ -210,7 +185,7 @@ footer {
 .link {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1em;
-    color: var(--text-color);;
+    color: black;
 }
 
 .FourOFourMessage {
@@ -221,11 +196,10 @@ footer {
     max-width: 800px;
     width: 90%;
     padding: 0.5em;
-    /* background-color: #56A1A4; */
+    background-color: #56A1A4;
 }
 
 .FourOFourMessage h1 {
-    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -245,7 +219,7 @@ footer {
         max-width: 800px;
         width: 100%;
         padding: 0.5em;
-        /* background-color: #56A1A4; */
+        background-color: #56A1A4;
     }
 
     .headerWrapper h1 {
@@ -254,7 +228,7 @@ footer {
 
     .blogCardsContainer {
         min-height: 100vh;
-        /* background-color: #56A1A4; */
+        background-color: #56A1A4;
         padding: 0.5em;
         max-width: 800px;
         width: 100%;
@@ -269,8 +243,7 @@ footer {
         max-width: 800px;
         width: 100%;
         padding: 0.5em;
-        color: var(--text-color);
-        /* background-color: #56A1A4; */
+        background-color: #56A1A4;
     }
 
     .blogContent {
@@ -281,18 +254,11 @@ footer {
         max-width: 800px;
         width: 100%;
         padding: 1em;
-        /* background-color: #56A1A4; */
+        background-color: #56A1A4;
     }
 
     .paddingTop {
         padding-top: 2em;
     }
-
-    .wrapper {
-    min-width: auto;
-    padding: 1em;
-    margin: 0.5em;
-    border-radius: 15px;
-}
 
 }

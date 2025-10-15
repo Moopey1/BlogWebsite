@@ -1,5 +1,4 @@
 ---
-title: "First post on my website."
 # description: "A fitting description."
 ---
 
