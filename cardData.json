@@ -27,5 +27,19 @@
         "date": "14-10-2025",
         "summary": "A fitting description.",
         "url": "first-blog"
+    }, 
+    {
+        "title": "My first post on my blog, hello world!",
+        "tags": ["blog"],
+        "date": "14-10-2025",
+        "summary": "A fitting description.",
+        "url": "first-blog"
+    }, 
+    {
+        "title": "My first post on my blog, hello world!",
+        "tags": ["blog"],
+        "date": "14-10-2025",
+        "summary": "A fitting description.",
+        "url": "first-blog"
     }
 ]
