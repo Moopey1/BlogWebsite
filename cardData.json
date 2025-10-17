@@ -1,42 +1,27 @@
 [
-
     {
-        "title": "Test post to see if syntax highlighting works.",
-        "tags": ["webdev"],
-        "date": "15-10-2025",
+        "title": "First post on now working blog",
+        "tags": ["test"],
+        "date": "14-10-2025",
         "summary": "A fitting description.",
         "url": "blogPage"
-    }, 
+    },
     {
-        "title": "My first post on my blog, hello world!",
+        "title": "First post on now working blog",
         "tags": ["blog"],
         "date": "14-10-2025",
         "summary": "A fitting description.",
         "url": "first-blog"
-    }, 
+    },
     {
-        "title": "My first post on my blog, hello world!",
+        "title": "First post on now working blog",
         "tags": ["blog"],
         "date": "14-10-2025",
         "summary": "A fitting description.",
         "url": "first-blog"
-    }, 
+    },
     {
-        "title": "My first post on my blog, hello world!",
-        "tags": ["blog"],
-        "date": "14-10-2025",
-        "summary": "A fitting description.",
-        "url": "first-blog"
-    }, 
-    {
-        "title": "My first post on my blog, hello world!",
-        "tags": ["blog"],
-        "date": "14-10-2025",
-        "summary": "A fitting description.",
-        "url": "first-blog"
-    }, 
-    {
-        "title": "My first post on my blog, hello world!",
+        "title": "First post on now working blog",
         "tags": ["blog"],
         "date": "14-10-2025",
         "summary": "A fitting description.",

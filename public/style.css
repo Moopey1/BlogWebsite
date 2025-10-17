@@ -1,7 +1,21 @@
 :root {
-    --text-color: #F3F9D2;
+    --text-color: #FFF8F0; 
+    --text-summary: #fff1d9ea;
+    --text-color-secondary: #ffffffa3;
+    --text-color-tag: #f2f2f2c9;
     --background-color: #A0153E;
-    --font-family:
+
+
+    /* --text-color: #F3F9D2; */
+    /* --text-color: #FBBA72; */
+    /* --text-color: #FFE0B5; */
+    /* --text-color: #FFF; */
+    /* --text-color: #FFF1E0; */
+    /* --text-color-tag: #dddddd; */
+
+    /* --background-color: #161032; */
+    /* --background-color: #6B2D5C; */
+    /* --background-color: #901338; */
 }
 
 html,
@@ -139,16 +153,19 @@ footer {
 }
 
 .wrapper {
-    /* width: 70%; */
     width: 550px;
     padding: 1em;
     margin: 0.5em;
     border-radius: 15px;
 }
 
+.secondaryText {
+    color: var(--text-color-tag);
+}
+
 .fullDate {
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--text-color);
+    color: var(--text-color-tag);
     margin: 0.3em;
     margin-left: 0;
     font-size: 1em
@@ -173,7 +190,7 @@ footer {
     padding-right: 0.4em;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color-tag);
     font-size: 1.2em;
 }
 
@@ -186,11 +203,11 @@ footer {
 }
 
 .summary {
-    padding: 0.5em;
+    /* padding: 0.5em; */
     border-top: 0;
     border-right: 0;
     border-bottom: 0;
-    border-style: solid;
+    /* border-style: solid; */
     color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
@@ -198,8 +215,9 @@ footer {
 
 .link {
     font-family: Arial, Helvetica, sans-serif;
+    /* text-decoration: none; */
     font-size: 1.1em;
-    color: var(--text-color);;
+    color: var(--text-color);
 }
 
 .FourOFourMessage {
