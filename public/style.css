@@ -1,10 +1,11 @@
 :root {
-    --text-color: #FFF8F0; 
+    --text-color: #FFF8F0;
     --text-summary: #fff1d9ea;
     --text-color-secondary: #ffffffa3;
     --text-color-tag: #f2f2f2c9;
     --background-color: #A0153E;
-    --background-color2: #b11d49;
+    --background-color2: #be1a4b;
+    --background-color3: #7a1332;
 
 
     /* --text-color: #F3F9D2; */
@@ -84,6 +85,13 @@ footer {
     border-radius: 50%;
     padding: 0.5em;
     margin: 0 1em;
+    transition-timing-function:
+        cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.socialsWrapper a:hover {
+    background-color: var(--background-color3);
 }
 
 
@@ -277,10 +285,10 @@ footer {
     }
 
     .wrapper {
-    /* width: 550px; */
-    padding: 1em;
-    margin: 0.5em;
-    border-radius: 15px;
-}
+        /* width: 550px; */
+        padding: 1em;
+        margin: 0.5em;
+        border-radius: 15px;
+    }
 
 }
