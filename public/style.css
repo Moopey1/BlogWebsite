@@ -138,13 +138,12 @@ footer {
 
 .blogCardsContainer {
     min-height: 100vh;
-    max-width: 1200px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 #namePhoto {
@@ -289,6 +288,13 @@ footer {
         padding: 1em;
         margin: 0.5em;
         border-radius: 15px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .blogWrapper {
+        max-width: 380px;
     }
 
 }
