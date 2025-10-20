@@ -1,10 +1,24 @@
 [
     {
+        "title": "Showing off Docker Compose Media ",
+        "tags": ["homelab", "docker", "networking"],
+        "date": "14-10-2025",
+        "summary": "Here I show how I set up docker for my homelab, this is mostly so show how I did it, it will not be thorough guide, I will provide some sources I used below. ",
+        "url": "blogPage"
+    },
+    {
         "title": "First post on now working blog",
-        "tags": ["test"],
+        "tags": ["blog"],
         "date": "14-10-2025",
         "summary": "A fitting description.",
-        "url": "blogPage"
+        "url": "first-blog"
+    },
+    {
+        "title": "First post on now working blog",
+        "tags": ["blog"],
+        "date": "14-10-2025",
+        "summary": "A fitting description.",
+        "url": "first-blog"
     },
     {
         "title": "First post on now working blog",
