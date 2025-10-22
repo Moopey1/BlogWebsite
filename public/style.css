@@ -271,7 +271,6 @@ footer {
     .footerContent {
         display: flex;
         justify-content: center;
-        max-width: 800px;
         /* padding: 0.5em; */
         color: var(--text-color);
     }
@@ -300,6 +299,13 @@ footer {
 @media only screen and (max-width: 600px) {
     .blogWrapper {
         max-width: 380px;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    .blogWrapper {
+        max-width: 300px;
     }
 
 }

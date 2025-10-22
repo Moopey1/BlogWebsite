@@ -1,11 +1,49 @@
----
-description: "Dit is de omschrijving van de blog."
----
+## Other technology used
 
-## 
+If you want to recreate something like this here is what I used
+- Docker and the Docker Compose files below
+- Proxmox (LXC, ZFS)
+- Pihole for DNS (you can use any DNS server, this is what works for me)
+- Traefik (reverse proxy)
+- Cloudflare for a domain name and HTTPS
 
-Dit is een test paragraaf.  
-Dit ook!
+## Sources used
+
+I followed [this Youtube video](https://www.youtube.com/watch?v=-hfejNXqOzA&t=2096s) to set up Traefik/HTTPS for all the services.
+To set up the Proxmox container, the ZFS pool and mounts points I followed [this written guide](https://blog.kye.dev/proxmox-series).
+This blog inspired me to make this one and I can't lie that I copied some features from their blog to mine!
+
+It's important to know that the yml files below are there for reference only, don't expect them to work instantly.  
+This is just how I did it. *It might not be the best/most practical solution, but it works and most importantly I learned a lot from doing it!*  
+The guides linked above helped me set them up, if you follow them correctly you should be able to get it to work.
+
+### Important to know
+For this to work securely you will need to set up a password and **not** use the insecure option for the Traefik dashboard.   
+The files can get you started but should not be used for production.
+
+## How it works
+
+If everything works properly here is how it *should* work.  
+For this example we will use radarr.homelab.com
+
+1. In the browser: radarr.homelab.com 
+2. Pihole resolves this to the Docker host with a wildcard record (*.homelab.com) 
+3. Traefik listens to HTTP and HTTPS traffic and picks up the request, it reads the header, and sees it matches a route you set up.
+4. Traefik connected to Let's Encrypt via Cloudflare and created a certificate for the domain.
+5. The request gets proxied over the Docker network to Radarr back to your browser.
+
+## .env file
+
+This is how the Youtube tutorial set up the cloudflare token.
+
+```bash
+CF_DNS_API_TOKEN=your_cloudflare_token
+```
+## Docker Compose Media stack
+
+This file defines all my media automation containers such as Radarr, Sonarr, and qBittorrent.  
+They’re connected through a shared *frontend* network and routed via Traefik.
+
 
 ```yml
 
@@ -30,9 +68,9 @@ services:
       - ./config:/gluetun
     environment:
       - VPN_SERVICE_PROVIDER=private internet access
-      - OPENVPN_USER=${OPENVPN_USER}
-      - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
-      - SERVER_REGIONS=DK Copenhagen
+      - OPENVPN_USER=username
+      - OPENVPN_PASSWORD=password
+      - SERVER_REGIONS=example
       - VPN_PORT_FORWARDING=on
       - VPN_PORT_FORWARDING_STATUS_FILE=/gluetun/forwarded_port
     ports:
@@ -229,3 +267,66 @@ networks:
 
 
 ```
+
+## Traefik Compose file
+
+```yml
+
+services:
+  traefik:
+    image: traefik:v3.5
+    container_name: traefik
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    environment:
+      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - ./certs/:/var/traefik/certs:rw
+    networks:
+      - frontend
+    restart: unless-stopped
+networks:
+  frontend:
+    external: true
+
+```
+
+## Traefik config file
+
+```yml
+
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+log:
+  level: DEBUG
+api:
+  dashboard: true
+  insecure: true
+entryPoints:
+  web:
+    address: :80
+  websecure:
+    address: :443
+certificatesResolvers:
+  cloudflare:
+    acme:
+      email: example@email.com  # <-- Change this to your email
+      storage: /var/traefik/certs/cloudflare-acme.json
+      caServer: "https://acme-v02.api.letsencrypt.org/directory"
+      dnsChallenge:
+        provider: cloudflare  # <-- (Optional) Change this to your DNS provider
+        resolvers:
+          - "1.1.1.1:53"
+          - "8.8.8.8:53"
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+
+```
+
