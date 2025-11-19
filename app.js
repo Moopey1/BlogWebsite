@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const cardData = require('./cardData.json');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const hljs = require('highlight.js');
 const md = require('markdown-it')({
@@ -19,6 +19,16 @@ const md = require('markdown-it')({
 const app = express();
 const port = 3000;
 
+const cardDataPath = path.join(__dirname, 'cardData.json');
+
+const loadCardData = () => {
+  try {
+    return JSON.parse(fs.readFileSync(cardDataPath, 'utf8'));
+  } catch (err) {
+    console.error('Failed to load cardData.json:', err);
+    return [];
+  }
+}
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({
@@ -34,7 +44,7 @@ const matter = require('gray-matter');
 
 app.get('/', (req, res) => {
   res.render('home', {
-    cardData: cardData
+    cardData: loadCardData()
   });
 });
 
@@ -42,6 +52,7 @@ app.get('/', (req, res) => {
 const cardSorter = (req, res, next) => {
   const sortedArray = [];
   const parsedTag = req.params.param.split('=')[1];
+  const cardData = loadCardData();
   cardData.forEach((object) => {
     object.tags.forEach((tag) => {
       if (tag === parsedTag) {
@@ -58,9 +69,11 @@ const cardSorter = (req, res, next) => {
 
 // Loads a markdown blog post based on the URL parameter, parses frontmatter, and renders it as HTML.
 const mdLoader = (req, res, next) => {
+  const cardData = loadCardData();
   const blog = cardData.find(b => b.url === req.params.param);
   if (!blog) {
     res.status(404).render('notFound');
+    return;
   }
 
   const file = matter.read(__dirname + '/blogs/' + req.params.param + '.md');  

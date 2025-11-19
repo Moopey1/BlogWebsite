@@ -1,0 +1,48 @@
+Overview
+- Server: app.js (Express). Main routes: '/' renders home.html; '/:param' handled by checker which dispatches to card sorting or markdown loading.
+- Static assets: public/ (CSS, template.html). Views are in views/.
+- Card data: cardData.json is read by the server and used to render cards on the homepage (views/blogCards.html).
+- Markdown posts: blogs/*.md are rendered into blogContent.html and placed inside blogPage.html using markdown-it + highlight.js.
+
+How homepage and cards work
+- cardData.json holds entries with title, tags, date, summary, url.
+- views/home.html includes views/blogCards.html which loops cardData.json and renders cards.
+- Card click: if url contains "tag=<tag>" it triggers cardSorter to filter cards; otherwise mdLoader tries to find blogs/<url>.md and render it.
+- Markdown frontmatter can be used but metadata for cards is taken from cardData.json.
+
+Add a static page
+1. Place new HTML in public/ (e.g. public/newpage.html).
+2. Access it at http://<host>/newpage.html. No server changes needed.
+
+Add a markdown blog post (dynamic)
+1. Create a Markdown file in blogs/ (e.g. blogs/my-new-post.md). Filename must match the card url (no .md in url).
+2. Write content. Optional YAML frontmatter is supported.
+3. Add a matching entry to cardData.json:
+   {
+     "title": "My new post",
+     "tags": ["tag1","tag2"],
+     "date": "YYYY-MM-DD",
+     "summary": "Short summary",
+     "url": "my-new-post"
+   }
+4. Restart the server (app.js uses require('./cardData.json') — Node caches require).
+
+Change card appearance
+- Edit views/blogCards.html for markup structure.
+- Edit public/style.css or theme.css for styles.
+
+Notes & gotchas
+- cardData.json is required by the server via require(); changes require restart.
+- Tag links are produced as /tag=<tagname>. checker in app.js expects that format.
+- Markdown rendering and syntax highlighting are configured in app.js.
+- Example posts: blogs/first-blog.md and blogs/showing-docker-compose.md.
+- Backup: cardData copy.json exists.
+
+Quick references (important files)
+- app.js — server, checker, cardSorter, mdLoader
+- cardData.json — card metadata
+- blogs/ — markdown posts
+- views/ — templates: home.html, blogCards.html, blogPage.html, blogContent.html, footer.html, notFound.html
+- public/ — static assets: style.css, theme.css, template.html
+
+If you want, I can create a JSON snippet and a matching .md file for a new post and add it to the project.

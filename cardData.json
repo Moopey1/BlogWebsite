@@ -12,5 +12,12 @@
         "date": "14-10-2025",
         "summary": "A fitting description.",
         "url": "first-blog"
+    },
+    {
+        "title": "First post on now working blog",
+        "tags": ["blog"],
+        "date": "14-10-2025",
+        "summary": "A fitting description.",
+        "url": "first-blog"
     }
 ]
