@@ -79,7 +79,7 @@ const mdLoader = (req, res, next) => {
   const file = matter.read(__dirname + '/blogs/' + req.params.param + '.md');  
   let content = file.content;
   const result = md.render(content);
-  console.log('result in mdLoader: ' + result);
+  // console.log('result in mdLoader: ' + result);
 
   res.render('blogPage', {
     post: result,
