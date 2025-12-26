@@ -9,7 +9,7 @@ If you want to recreate something like this here is what I used
 
 ## Sources used
 
-I followed [this Youtube video](https://www.youtube.com/watch?v=-hfejNXqOzA&t=2096s) to set up Traefik/HTTPS for all the services.
+I followed [this Youtube video](https://www.youtube.com/watch?v=-hfejNXqOzA) to set up Traefik/HTTPS for all the services.
 To set up the Proxmox container, the ZFS pool and mounts points I followed [this written guide](https://blog.kye.dev/proxmox-series).
 This blog inspired me to make this one and I can't lie that I copied some features from their blog to mine!
 
