@@ -162,17 +162,31 @@ footer {
 #namePhoto {
     display: flex;
     align-items: center;
+    gap: 0.6rem; 
 }
 
 .imgWrapper {
+    width: 75px;
     height: 75px;
+    flex: 0 0 75px; 
+    overflow: hidden; 
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    display: inline-block;
 }
 
 #hoofd {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    display: block;
     border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+#namePhoto h2 {
+    margin: 0; 
+    line-height: 1;
 }
 
 .wrapper {
