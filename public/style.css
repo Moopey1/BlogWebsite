@@ -27,6 +27,11 @@ body {
     background-color: var(--background-color);
 }
 
+html, body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
 header {
     width: 100%;
 }
@@ -146,9 +151,12 @@ footer {
 
 .blogCardsContainer {
     min-height: 100vh;
+    min-height: 100dvh;
     align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
+
+    -webkit-overflow-scrolling: touch;
 }
 
 #namePhoto {
