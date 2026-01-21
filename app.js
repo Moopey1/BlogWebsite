@@ -20,16 +20,6 @@ const app = express();
 const port = 3000;
 
 const cardDataPath = path.join(__dirname, 'cardData.json');
-
-const loadCardData = () => {
-  try {
-    return JSON.parse(fs.readFileSync(cardDataPath, 'utf8'));
-  } catch (err) {
-    console.error('Failed to load cardData.json:', err);
-    return [];
-  }
-}
-
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({
   extended: true
@@ -42,9 +32,24 @@ app.set('view engine', 'html');
 
 const matter = require('gray-matter');
 
+const loadCardData = () => {
+  try {
+    return JSON.parse(fs.readFileSync(cardDataPath, 'utf8'));
+  } catch (err) {
+    console.error('Failed to load cardData.json:', err);
+    return [];
+  }
+}
+
+const getYear = () => {
+  const date = new Date();
+  return date.getFullYear();
+}
+
 app.get('/', (req, res) => {
   res.render('home', {
-    cardData: loadCardData()
+    cardData: loadCardData(),
+    year: getYear()
   });
 });
 
@@ -82,6 +87,7 @@ const mdLoader = (req, res, next) => {
   // console.log('result in mdLoader: ' + result);
 
   res.render('blogPage', {
+    year: getYear(),
     post: result,
     title: blog.title,
     description: blog.summary
