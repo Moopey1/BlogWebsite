@@ -67,6 +67,7 @@ const cardSorter = (req, res, next) => {
   });
 
   res.render('home', {
+    year: getYear(),
     cardData: sortedArray
   });
   next();
@@ -109,5 +110,5 @@ app.get('/:param', checker, (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Blog listening on port ${port}`);
 });
