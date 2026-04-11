@@ -1,3 +1,10 @@
+---
+title: "Showing off Docker Compose Media server"
+tags: ["homelab", "docker", "networking"]
+date: "20-10-2025"
+summary: "Here I show how I set up a media stack for my homelab using Docker Compose, this is mostly to show how I did it, it will not be a thorough guide. I will provide some sources I used below."
+---
+
 ## Other technology used
 
 If you want to recreate something like this here is what I used
@@ -329,4 +336,3 @@ providers:
     exposedByDefault: false
 
 ```
-

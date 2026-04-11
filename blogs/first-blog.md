@@ -1,5 +1,8 @@
 ---
-# description: "A fitting description."
+title: "First post on now working blog"
+tags: ["blog"]
+date: "14-10-2025"
+summary: "A fitting description."
 ---
 
 Since I started web development I always wanted to build something like this and I finally did it!  

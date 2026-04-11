@@ -1,3 +1,10 @@
+---
+title: "Pihole wildcard DNS records"
+tags: ["homelab", "pihole", "networking"]
+date: "11-12-2025"
+summary: "The pihole GUI has no option for DNS wildcard records, some googling found me this solution."
+---
+
 Even I could do it so that means it is not too difficult to set this up, let's get to it right away!
 
 ## What to do

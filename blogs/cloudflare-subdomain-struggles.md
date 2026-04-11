@@ -1,3 +1,10 @@
+---
+title: "Cloudflare www. subdomain struggles"
+tags: ["cloudflare", "DNS", "networking"]
+date: "23-12-2025"
+summary: "Trying to get www.blog.tinuslab.nl to work was a bit of a struggle."
+---
+
 I didn't end up fixing it but still wanted to post something about it, maybe I can help someone with it, who knows!
 
 ## TLDR
