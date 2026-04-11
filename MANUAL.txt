@@ -1,14 +1,15 @@
 Overview
 - Server: app.js (Express). Main routes: '/' renders home.html; '/:param' handled by checker which dispatches to card sorting or markdown loading.
 - Static assets: public/ (CSS, template.html). Views are in views/.
-- Card data: cardData.json is read by the server and used to render cards on the homepage (views/blogCards.html).
+- Card data: app.js now scans blogs/*.md and reads YAML frontmatter from each post.
 - Markdown posts: blogs/*.md are rendered into blogContent.html and placed inside blogPage.html using markdown-it + highlight.js.
 
 How homepage and cards work
-- cardData.json holds entries with title, tags, date, summary, url.
-- views/home.html includes views/blogCards.html which loops cardData.json and renders cards.
+- Each markdown file holds its own card data in frontmatter: title, tags, date, summary.
+- The url is automatic: blogs/my-new-post.md becomes /my-new-post.
+- views/home.html includes views/blogCards.html which loops the generated cardData array and renders cards.
 - Card click: if url contains "tag=<tag>" it triggers cardSorter to filter cards; otherwise mdLoader tries to find blogs/<url>.md and render it.
-- Markdown frontmatter can be used but metadata for cards is taken from cardData.json.
+- Markdown frontmatter is the source for homepage card metadata.
 
 Add a static page
 1. Place new HTML in public/ (e.g. public/newpage.html).
@@ -16,23 +17,22 @@ Add a static page
 
 Add a markdown blog post (dynamic)
 1. Create a Markdown file in blogs/ (e.g. blogs/my-new-post.md). Filename must match the card url (no .md in url).
-2. Write content. Optional YAML frontmatter is supported.
-3. Add a matching entry to cardData.json:
-   {
-     "title": "My new post",
-     "tags": ["tag1","tag2"],
-     "date": "YYYY-MM-DD",
-     "summary": "Short summary",
-     "url": "my-new-post"
-   }
-4. Restart the server (app.js uses require('./cardData.json') — Node caches require).
+2. Add YAML frontmatter at the top:
+   ---
+   title: "My new post"
+   tags: ["tag1", "tag2"]
+   date: "YYYY-MM-DD"
+   summary: "Short summary"
+   ---
+3. Write the post below that frontmatter.
+4. Restart the server if it is already running.
 
 Change card appearance
 - Edit views/blogCards.html for markup structure.
 - Edit public/style.css or theme.css for styles.
 
 Notes & gotchas
-- cardData.json is required by the server via require(); changes require restart.
+- cardData.json is no longer used by app.js. Existing data has moved into markdown frontmatter.
 - Tag links are produced as /tag=<tagname>. checker in app.js expects that format.
 - Markdown rendering and syntax highlighting are configured in app.js.
 - Example posts: blogs/first-blog.md and blogs/showing-docker-compose.md.
@@ -44,5 +44,3 @@ Quick references (important files)
 - blogs/ — markdown posts
 - views/ — templates: home.html, blogCards.html, blogPage.html, blogContent.html, footer.html, notFound.html
 - public/ — static assets: style.css, theme.css, template.html
-
-If you want, I can create a JSON snippet and a matching .md file for a new post and add it to the project.

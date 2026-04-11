@@ -19,7 +19,7 @@ const md = require('markdown-it')({
 const app = express();
 const port = 3000;
 
-const cardDataPath = path.join(__dirname, 'cardData.json');
+const blogsPath = path.join(__dirname, 'blogs');
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({
   extended: true
@@ -32,11 +32,51 @@ app.set('view engine', 'html');
 
 const matter = require('gray-matter');
 
+// Turns a filename slug into a readable fallback title when frontmatter has no title.
+const toTitleCase = (slug) => {
+  return slug
+    .split('-')
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+// Supports both the existing DD-MM-YYYY dates and normal Date.parse-compatible strings.
+const parseBlogDate = (date) => {
+  if (!date) {
+    return 0;
+  }
+
+  if (/^\d{2}-\d{2}-\d{4}$/.test(date)) {
+    const [day, month, year] = date.split('-');
+    return new Date(`${year}-${month}-${day}`).getTime();
+  }
+
+  return new Date(date).getTime() || 0;
+}
+
+// Builds homepage card data from markdown frontmatter so cardData.json is no longer manual work.
 const loadCardData = () => {
   try {
-    return JSON.parse(fs.readFileSync(cardDataPath, 'utf8'));
+    return fs.readdirSync(blogsPath)
+      .filter((fileName) => fileName.endsWith('.md'))
+      .map((fileName) => {
+        const url = path.basename(fileName, '.md');
+        const file = matter.read(path.join(blogsPath, fileName));
+        const data = file.data;
+
+        // URL comes from filename: blogs/my-post.md becomes /my-post.
+        return {
+          title: data.title || toTitleCase(url),
+          tags: Array.isArray(data.tags) ? data.tags : [],
+          date: data.date || '',
+          summary: data.summary || data.description || '',
+          url: url
+        };
+      })
+      .sort((a, b) => parseBlogDate(b.date) - parseBlogDate(a.date));
   } catch (err) {
-    console.error('Failed to load cardData.json:', err);
+    console.error('Failed to load blog metadata:', err);
     return [];
   }
 }
@@ -82,6 +122,7 @@ const mdLoader = (req, res, next) => {
     return;
   }
 
+  // Read same markdown file again for the post body; gray-matter strips frontmatter.
   const file = matter.read(__dirname + '/blogs/' + req.params.param + '.md');  
   let content = file.content;
   const result = md.render(content);
